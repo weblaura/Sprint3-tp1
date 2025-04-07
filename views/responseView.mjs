@@ -1,6 +1,6 @@
 export function renderizarSuperheroe(superheroe) {
     return {
-        id: superheroe.id,
+        id: superheroe._id,
         Nombre: superheroe.nombreSuperHeroe,
         "Nombre real": superheroe.nombreReal,
         Edad: superheroe.edad,

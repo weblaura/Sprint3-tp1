@@ -75,12 +75,12 @@ export async function updateSuperHeroController(req, res){
         if (!superheroeActualizado || Object.keys(superheroeActualizado).length === 0   ) {
             return res.status(400).send({ mensaje: 'No se encontraron datos para actualizar'});
         }
-        
+        const superheroeModificado = await updateSuperHero(id, superheroeActualizado);
         if (!superheroeActualizado ) {
             return res.status(404).send({ mensaje: 'No se encontro superheroe actualizado'});
         }
-        const superheroeModificado = await updateSuperHero(id, superheroeActualizado);
-        res.status(200).json(superheroesFormateados(superheroeModificado));
+        const superheroeFormateado = renderizarSuperheroe(superheroeActualizado);
+    res.status(200).json(superheroeFormateado);
     } catch (error){
         res.status(500).send({mensaje: 'Error al obtener lista de superheroe actualizado', error: error.message});
     }

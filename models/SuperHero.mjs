@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
-const superheroSchema = new mongoose.Schema({
 
+const superheroSchema = new mongoose.Schema({
+    
     nombreSuperHeroe: { type: String, required: true},
     nombreReal: { type: String,required: true},
     edad:{ type: Number, min: 0},
@@ -10,7 +11,7 @@ const superheroSchema = new mongoose.Schema({
     aliados: [String],
     enemigos: [String],
     createdAt: { type: Date, default: Date.now},
-       creador: String,
+    creador: String,
 });
 
 const superHero = mongoose.model('superHero', superheroSchema, 'Grupo-12');
